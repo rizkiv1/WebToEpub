@@ -49,12 +49,12 @@ class NineHeavensParser extends Parser{
 
     // Genre of the story
     // Optional, Genre for metadata, if not provided, will default to ""
-    
+    /*
     extractSubject(dom) {
         let tags = [...dom.querySelectorAll("[property='genre']")];
         return tags.map(e => e.textContent.trim()).join(", ");
     }
-    
+    */
     extractDescription(dom) {
         return dom.querySelector("section.story__summary").textContent.trim();
     }
@@ -84,7 +84,7 @@ class NineHeavensParser extends Parser{
     // that are to be shown on epub's "information" page
     
     getInformationEpubItemChildNodes(dom) {
-        return [...dom.querySelector("header.story__header, section.story__summary")];
+        return [...dom.querySelectorAll("section.story__summary")];
     }
     
     // Optional, Any cleanup operations to perform on the nodes
