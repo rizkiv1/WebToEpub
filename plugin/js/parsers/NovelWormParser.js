@@ -59,7 +59,8 @@ class NovelhiParser extends Parser {
             }
         }
 
-        let menu = dom.querySelector("div.su-tabs-panes");
+        /*
+        let menu = dom.querySelector("div.ignore.Chapter-list");
         return util.hyperlinksToChapterList(menu);
 
         // Almost as common, find links on page and convert.
@@ -83,17 +84,17 @@ class NovelhiParser extends Parser {
             TemplateParser.extractPartialChapterList,
             urlsOfTocPages,
             chapterUrlsUI,
-        );
+        ); */
     }
 
     // returns the element holding the story content in a chapter
-    /*
+    
     findContent(dom) {
         // typical implementation is find node with all wanted content
         // return is the element holding just the wanted content.
         return dom.querySelector("article");
     }
-    */
+    
 
     // title of the story  (not to be confused with title of each chapter)
     /*
