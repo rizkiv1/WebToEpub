@@ -22,9 +22,9 @@ parserFactory.registerRule(
 );
 */
 
-parserFactory.register("novelhi.com", () => new NovelhiParser());
+parserFactory.register("novelworm.com", () => new NovelWormParser());
 
-class NovelhiParser extends Parser {
+class NovelWormParser extends Parser {
     // eslint-disable-line no-unused-vars
     constructor() {
         super();
@@ -44,47 +44,13 @@ class NovelhiParser extends Parser {
 
         for (let span of spans) {
             if (span.textContent.trim() === "Table of Contents") {
-                // Trigger a click
                 span.click();
-
-                // Or simulate a more realistic click event
-                //const event = new MouseEvent("click", {
-                //    bubbles: true,
-                //    cancelable: true,
-                //    view: window,
-                //});
-                //span.dispatchEvent(event);
-
-                break; // stop after the first match
+                break;
             }
         }
 
-        /*
         let menu = dom.querySelector("div.ignore.Chapter-list");
         return util.hyperlinksToChapterList(menu);
-
-        // Almost as common, find links on page and convert.
-        return [...dom.querySelectorAll("li.wp-manga-chapter.free-chap a")].map(
-            (a) => util.hyperLinkToChapter(a),
-        );
-
-        // Need to walk multiple ToC pages, page by page
-        return await this.walkTocPages(
-            dom,
-            TemplateParser.chaptersFromDom,
-            TemplateParser.nextTocPageUrl,
-            chapterUrlsUI,
-        );
-
-        // Can get list of all ToC pages
-        let tocPage1chapters = TemplateParser.extractPartialChapterList(dom);
-        let urlsOfTocPages = TemplateParser.getUrlsOfTocPages(dom);
-        return await this.getChaptersFromAllTocPages(
-            tocPage1chapters,
-            TemplateParser.extractPartialChapterList,
-            urlsOfTocPages,
-            chapterUrlsUI,
-        ); */
     }
 
     // returns the element holding the story content in a chapter
